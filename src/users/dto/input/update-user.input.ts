@@ -3,16 +3,16 @@ import { IsNotEmpty, IsOptional } from "class-validator";
 
 @InputType()
 export class UpdateUserInput {
-    @Field
+    @Field()
     @IsNotEmpty()
     userId: string;
 
-    @Field
+    @Field({ nullable: true })
     @IsNotEmpty()
     @IsOptional()
     age?: number;
 
-    @Field()
+    @Field({ nullable: true })
     @IsOptional()
     isSubscribed?: boolean;
 }

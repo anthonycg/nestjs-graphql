@@ -15,7 +15,7 @@ export class UsersService {
         const user: User = {
             userId: uuidv4(),
             ...createUserData //spreading create user data so if any additional data is added, it adjusts.
-        }
+        };
         this.users.push(user);
 
         return user;
@@ -33,7 +33,7 @@ export class UsersService {
         return this.users.find((user) => user.userId === getSingleUser.userId);
     }
 
-    public getUsers(getMultipleUsers: GetUsersArgs): User {
+    public getUsers(getMultipleUsers: GetUsersArgs): User[] {
         // basically what's happening here ^^ is we have a variable 'getMulti..' with a type/class of GetUserArgs. 
         // by specifying this class, we can access the fields within that class
         // in this case we want to return the userIds denoted in the GetUserArgs class.
@@ -44,7 +44,7 @@ export class UsersService {
     public deleteUser(deleteUserData: DeleteUserInput): User {
         const userIndex = this.users.findIndex(user => user.userId === deleteUserData.userId);
 
-        const userToBeDeleted = users[userIndex];
+        const userToBeDeleted = this.users[userIndex];
 
         this.users.splice(userIndex);
 
