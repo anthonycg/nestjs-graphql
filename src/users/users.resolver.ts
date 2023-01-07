@@ -37,3 +37,22 @@ export class UsersResolver {
         return this.userService.deleteUser(deleteUserData);
     }
 }
+
+// Here's another way to write resolver functions using generic object returns Promise<ObjectToBeReturned>
+// in this example: the books resolver is defined as a GraphQL query that returns a Promise<Book[]>, 
+// cawhich means that it will asynchronously resolve to an array of Book objects.
+
+// @Resolver()
+// export class BooksResolver {
+//   constructor(private readonly booksService: BooksService) {}
+
+//   @Query()
+//   async books(): Promise<Book[]> {
+//     return this.booksService.getBooks();
+//   }
+
+//   @Mutation()
+//   async createBook(data: CreateBookInput): Promise<Book> {
+//     return this.booksService.createBook(data);
+//   }
+// }

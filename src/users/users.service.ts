@@ -52,3 +52,17 @@ export class UsersService {
     }
 
 }
+
+
+// @Injectable()
+// export class BooksService {
+//   constructor(private readonly prisma: PrismaService) {}
+
+//   async getBooks(): Promise<Book[]> {
+//     return this.prisma.book.findMany();
+//   }
+
+//   async createBook(data: CreateBookInput): Promise<Book> {
+//     return this.prisma.book.create({ data });
+//   }
+// }
